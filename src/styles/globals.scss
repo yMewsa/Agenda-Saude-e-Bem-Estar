@@ -1,0 +1,254 @@
+@use './variables' as *;
+@use './layout' as *;
+
+// Import de fontes modernas de alta legibilidade
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: $cor-fundo;
+  color: $cor-texto-principal;
+  font-family: $fonte-padrao;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Botões Padronizados
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: $raio-borda;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  text-decoration: none;
+
+  &-primario {
+    background-color: $cor-teal-destaque;
+    color: #FFFFFF;
+
+    &:hover {
+      background-color: #004D40;
+      box-shadow: 0 4px 10px rgba(0, 105, 92, 0.25);
+    }
+  }
+
+  &-secundario {
+    background-color: #F1F5F9;
+    color: $cor-texto-principal;
+    border: 1px solid $cor-borda;
+
+    &:hover {
+      background-color: #E2E8F0;
+    }
+  }
+
+  &-perigo {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+    border: 1px solid #FECACA;
+
+    &:hover {
+      background-color: #FCA5A5;
+    }
+  }
+
+  &-icone {
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: $cor-texto-secundario;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #F1F5F9;
+      color: $cor-texto-principal;
+    }
+  }
+}
+
+// Cards de Estatísticas / Métricas
+.grid-metricas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.card-metrica {
+  background-color: $cor-card;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-card;
+  padding: 20px;
+  box-shadow: $sombra-suave;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    color: $cor-texto-mutado;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__corpo {
+    margin-top: 12px;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    .numero {
+      font-size: 32px;
+      font-weight: 800;
+      color: $cor-texto-principal;
+      line-height: 1;
+    }
+
+    .legenda {
+      font-size: 13px;
+      color: $cor-texto-secundario;
+      font-weight: 500;
+    }
+  }
+}
+
+// Tabela de Alto Contraste para Gestão Operacional
+.tabela-container {
+  background-color: $cor-card;
+  border: 1px solid $cor-borda;
+  border-radius: $raio-card;
+  box-shadow: $sombra-suave;
+  overflow: hidden;
+}
+
+.tabela-cabecalho-acoes {
+  padding: 20px 24px;
+  border-bottom: 1px solid $cor-borda;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  .filtros-grupo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  select, input {
+    padding: 8px 14px;
+    border: 1px solid $cor-borda;
+    border-radius: $raio-borda;
+    background-color: #F8FAFC;
+    font-size: 13px;
+    color: $cor-texto-principal;
+    font-weight: 500;
+    outline: none;
+
+    &:focus {
+      border-color: $cor-primaria;
+      background-color: #FFFFFF;
+    }
+  }
+}
+
+.tabela-moderna {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+
+  th {
+    padding: 14px 20px;
+    background-color: #F8FAFC;
+    color: $cor-texto-mutado;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    border-bottom: 1px solid $cor-borda;
+  }
+
+  td {
+    padding: 16px 20px;
+    border-bottom: 1px solid #F1F5F9;
+    font-size: 14px;
+    vertical-align: middle;
+  }
+
+  tr:hover td {
+    background-color: #F8FAFC;
+  }
+}
+
+// Status Badges das Consultas
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+
+  &--agendada {
+    background-color: $status-agendada-fundo;
+    color: $status-agendada-texto;
+  }
+
+  &--confirmada {
+    background-color: $status-confirmada-fundo;
+    color: $status-confirmada-texto;
+  }
+
+  &--realizada {
+    background-color: $status-realizada-fundo;
+    color: $status-realizada-texto;
+  }
+
+  &--cancelada {
+    background-color: $status-cancelada-fundo;
+    color: $status-cancelada-texto;
+  }
+}
+
+// Modal de Agendamento
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-conteudo {
+  background-color: $cor-card;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: $sombra-destaque;
+  border: 1px solid $cor-borda;
+}

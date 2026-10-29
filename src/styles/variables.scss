@@ -1,0 +1,35 @@
+// Variáveis de Cores Primárias e Marca
+$cor-primaria: #0284C7;
+$cor-primaria-escura: #0F172A;
+$cor-teal-destaque: #00695C;
+$cor-teal-fundo: #E8F5E9;
+
+// Variáveis de Cores Neutras e Estruturais
+$cor-fundo: #F8FAFC;
+$cor-card: #FFFFFF;
+$cor-borda: #E2E8F0;
+$cor-borda-foco: #CBD5E1;
+$cor-texto-principal: #0F172A;
+$cor-texto-secundario: #475569;
+$cor-texto-mutado: #64748B;
+
+// Cores dos Badges de Status das Consultas
+$status-agendada-fundo: #E0F2FE;
+$status-agendada-texto: #0369A1;
+
+$status-confirmada-fundo: #DCFCE7;
+$status-confirmada-texto: #15803D;
+
+$status-realizada-fundo: #F1F5F9;
+$status-realizada-texto: #475569;
+
+$status-cancelada-fundo: #FEE2E2;
+$status-cancelada-texto: #B91C1C;
+
+// Tipografia e Espaçamentos de Alto Contraste
+$fonte-padrao: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$raio-borda: 10px;
+$raio-card: 14px;
+$sombra-suave: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+$sombra-destaque: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
+$largura-sidebar: 260px;

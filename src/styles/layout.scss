@@ -1,0 +1,276 @@
+@use './variables' as *;
+
+// Estrutura geral de layout com barra lateral e conteúdo principal
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: $cor-fundo;
+  font-family: $fonte-padrao;
+  color: $cor-texto-principal;
+}
+
+// Barra lateral (Sidebar) elegante e de alta legibilidade
+.sidebar {
+  width: $largura-sidebar;
+  background-color: $cor-card;
+  border-right: 1px solid $cor-borda;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  box-shadow: $sombra-suave;
+
+  &__logo {
+    padding: 24px 20px;
+    border-bottom: 1px solid $cor-borda;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    .logo-icone {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, $cor-teal-destaque 0%, #00897B 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .logo-texto {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        font-size: 15px;
+        font-weight: 700;
+        color: $cor-texto-principal;
+        line-height: 1.2;
+        margin: 0;
+      }
+
+      span {
+        font-size: 11px;
+        color: $cor-texto-mutado;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  &__status-unidade {
+    margin: 16px 20px 8px 20px;
+    padding: 8px 12px;
+    background-color: $cor-fundo;
+    border: 1px solid $cor-borda;
+    border-radius: $raio-borda;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 600;
+
+    .dot-ativa {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #10B981;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .badge-aberta {
+      background-color: #DCFCE7;
+      color: #15803D;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+    }
+  }
+
+  &__navegacao {
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+
+    .secao-titulo {
+      font-size: 11px;
+      font-weight: 700;
+      color: $cor-texto-mutado;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      padding: 8px 12px;
+      margin-top: 8px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      border-radius: $raio-borda;
+      color: $cor-texto-secundario;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+
+      .icone {
+        margin-right: 12px;
+        font-size: 18px;
+      }
+
+      &:hover {
+        background-color: #F1F5F9;
+        color: $cor-primaria-escura;
+      }
+
+      &.ativo {
+        background-color: $cor-teal-destaque;
+        color: #FFFFFF;
+
+        .badge-contagem {
+          background-color: rgba(255, 255, 255, 0.25);
+          color: #FFFFFF;
+        }
+      }
+
+      .badge-contagem {
+        background-color: #E2E8F0;
+        color: $cor-texto-secundario;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  &__rodape {
+    padding: 16px;
+    border-top: 1px solid $cor-borda;
+    font-size: 12px;
+    color: $cor-texto-mutado;
+    text-align: center;
+  }
+}
+
+// Conteúdo principal (Header Superior e Área de Trabalho)
+.conteudo-principal {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+// Cabeçalho superior com barra de busca, alternador de perfis e data
+.header-topo {
+  background-color: $cor-card;
+  border-bottom: 1px solid $cor-borda;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: $sombra-suave;
+
+  &__busca {
+    flex: 1;
+    max-width: 440px;
+    position: relative;
+
+    input {
+      width: 100%;
+      padding: 10px 16px 10px 38px;
+      background-color: #F1F5F9;
+      border: 1px solid $cor-borda;
+      border-radius: $raio-borda;
+      font-size: 13px;
+      color: $cor-texto-principal;
+      outline: none;
+      transition: border 0.2s ease;
+
+      &:focus {
+        border-color: $cor-primaria;
+        background-color: #FFFFFF;
+      }
+    }
+
+    .icone-lupa {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: $cor-texto-mutado;
+    }
+  }
+
+  &__acoes {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__data {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background-color: #F8FAFC;
+    border: 1px solid $cor-borda;
+    border-radius: $raio-borda;
+    font-size: 13px;
+    font-weight: 600;
+    color: $cor-texto-secundario;
+  }
+
+  &__usuario {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      color: $cor-texto-secundario;
+    }
+
+    .info-usuario {
+      display: flex;
+      flex-direction: column;
+
+      .nome {
+        font-size: 13px;
+        font-weight: 700;
+        color: $cor-texto-principal;
+      }
+
+      .papel {
+        font-size: 11px;
+        color: $cor-texto-mutado;
+      }
+    }
+  }
+}
+
+// Área do miolo das páginas
+.area-pagina {
+  padding: 32px;
+  flex: 1;
+}
