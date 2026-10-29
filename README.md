@@ -1,4 +1,7 @@
 # Sistema de agendamento de consultas - "Saúde & Bem Estar"
+
+Realizado por Larissa Nicodemo e Larissa Vieira
+
 Prototipagem Link: https://stitch.google.com/projects/14449674919473421590 
 
 ## Desafio
